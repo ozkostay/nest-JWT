@@ -23,5 +23,19 @@ export class UsersService {
       console.log('USER-SERVICE ===', email);
       return this.users.find(user => user.email === email);
     }
+
+    async addUser(payload) {
+        // вытаскиваем константиы
+        // проверяем наличие email в базе
+        // если нет, создаем user = объект
+        // вставляем в массив users
+        // получаем токен по user
+        // возвращаем объент
+        //  {
+        //     access_token: this.jwtService.sign(payload),
+        //     user
+        //  }
+        return 'ok'
+    }
    
 }

@@ -44,9 +44,6 @@ let AuthService = class AuthService {
     singup() {
         return ('AUTH singup');
     }
-    singin() {
-        return ('AUTH singin');
-    }
     testtoken() {
         return ('AUTH testtoken');
     }

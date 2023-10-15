@@ -12,6 +12,5 @@ export declare class AuthService {
     createToken(payload: any): string;
     root(): string;
     singup(): string;
-    singin(): string;
     testtoken(): string;
 }

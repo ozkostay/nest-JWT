@@ -29,6 +29,9 @@ let UsersService = class UsersService {
         console.log('USER-SERVICE ===', email);
         return this.users.find(user => user.email === email);
     }
+    async addUser(payload) {
+        return 'ok';
+    }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([
