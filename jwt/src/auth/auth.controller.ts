@@ -17,17 +17,15 @@ export class AuthController {
 
   }
   
-  // @Get('signin')
-  // singnin() {
-  //   return this.authService.test();
-  //   //return this.apiService.singin();
-  // }
-
   @Post('signin')
   @UseGuards(AuthGuard('local'))
   async login(@Request() req) {
     console.log('API-CONTROLLER=== ', req.user);
-    // return req.user;
     return this.authService.login(req.user)
+  }
+
+  @Get('testtoken')
+  testtoken() {
+    return this.authService.testtoken()
   }
 }

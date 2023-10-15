@@ -13,9 +13,7 @@ export class AuthService {
         console.log('AUT-SERVICE=== ', email, pass);
         const user = await this.usersService.findOne(email);
         if (user && user.password === pass) {
-            // console.log('AUT-SERVICE===2 ', user);
             const { password, ...result } = user;
-            // console.log('AUT-SERVICE===2 ', result);
             return result;
         }
         return null;
@@ -44,6 +42,10 @@ export class AuthService {
 
     singin() {
         return ('AUTH singin')
+    }
+
+    testtoken() {
+        return ('AUTH testtoken')
     }
    
 }
