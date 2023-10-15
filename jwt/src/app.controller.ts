@@ -13,27 +13,16 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Get('/konst')
-  getKonst(): string {
-    return this.appService.getKonst();
-  }
-
   @Get('/token')
   getToken(): string {
-    // Объект заменить на запрос
-    return this.authService.createToken({ 
-      id: 2,
-      email: "user2@mail.ru",
-      firstName: "Name2",
-    });
+    return this.authService.createToken({ username: 'Maria', sub: 2 });
   }
 
+  // @UseGuards(JwtAuthGuard)
+  // @Post('/login')
   // @UseGuards(AuthGuard('local'))
-  @UseGuards(JwtAuthGuard)
-  @Post('/login')
-  async login(@Request() req) {
-    console.log('Login', req );
-    return req.user;
-  }
+  // async login(@Request() req) {
+  //   console.log('APP-CONTROLLER=== ', req.user);
+  //   return req.user;
+  // }
 }

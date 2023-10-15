@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>App</title>
-  </head>
-  <body>
-    <div>Главная страница</div>
-    <%= message %>
-  </body>
-</html>
+<%- include('./port/layout-start', {title: 'Главная'}) %>
+
+<main>
+  <div>Главная страница</div>
+</main>
+
+<%- include('./port/layout-end') %>

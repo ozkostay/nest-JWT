@@ -6,6 +6,8 @@ import { UsersModule } from '../users/users.module';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
+// import { ApiModule } from 'src/api/api.module';
+import { AuthController } from './auth.controller';
 
 @Module({
   imports: [
@@ -13,10 +15,11 @@ import { jwtConstants } from './constants';
     PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '600s' },
+      signOptions: { expiresIn: '60s' },
     }),
   ],
-  providers: [AuthService, JwtStrategy],
+  providers: [AuthService, JwtStrategy, LocalStrategy],
   exports: [AuthService],
+  controllers: [AuthController],
 })
 export class AuthModule {}

@@ -1,0 +1,29 @@
+[33mcommit d2e71d4fb17ae41051d4ed31ca19a8279551e3fa[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ozkostay <ozkostay@mail.ru>
+Date:   Thu Oct 12 22:16:02 2023 +0500
+
+    add front
+
+[33mcommit b97e96c31fc3288cf07642c3d48730ae9ef43c9d[m
+Author: ozkostay <ozkostay@mail.ru>
+Date:   Thu Oct 12 19:05:01 2023 +0500
+
+    migrate on my project
+
+[33mcommit df04c46b06eeae47b3e8e859e9c16e7d14ab4d64[m
+Author: ozkostay <ozkostay@mail.ru>
+Date:   Thu Oct 12 12:25:01 2023 +0500
+
+    modify  package.json
+
+[33mcommit 980970a4e5c16b53b34498bb0a7c13a3c7fd7705[m
+Author: ozkostay <ozkostay@mail.ru>
+Date:   Thu Oct 12 11:24:41 2023 +0500
+
+    start
+
+[33mcommit eb08118902f244e169ea0c04d66f48ed85f81c3d[m
+Author: Konstantin <81559232+ozkostay@users.noreply.github.com>
+Date:   Thu Oct 12 11:08:23 2023 +0500
+
+    Initial commit
