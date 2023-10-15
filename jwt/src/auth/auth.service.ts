@@ -45,6 +45,7 @@ export class AuthService {
     }
 
     testtoken() {
+        // console.log('777777777777777', process.env.JWT_SECRET);
         return ('AUTH testtoken')
     }
    
