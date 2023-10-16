@@ -28,6 +28,10 @@ export class AuthService {
 
   async register(userNew: any) {
     const user = await this.usersService.addUser(userNew);
+    if (!user) {
+      return { statusCode: 401, message: 'Пользователь с таким именем уже есть!!!'}
+    }
+
     const payload = { firstName: user.firstName, sub: user.userId };
     const { password, ...result } = user;
     return {
@@ -42,6 +46,6 @@ export class AuthService {
   }
 
   testtoken() {
-    return 'AUTH testtoken';
+    return { statusCode: 200, message: 'Успешный доступ к закрытой странице'};
   }
 }

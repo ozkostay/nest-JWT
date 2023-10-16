@@ -10,9 +10,19 @@ export declare class AuthService {
         user: any;
     }>;
     register(userNew: any): Promise<{
+        statusCode: number;
+        message: string;
+        access_token?: undefined;
+        user?: undefined;
+    } | {
         access_token: string;
         user: any;
+        statusCode?: undefined;
+        message?: undefined;
     }>;
     createToken(payload: any): string;
-    testtoken(): string;
+    testtoken(): {
+        statusCode: number;
+        message: string;
+    };
 }

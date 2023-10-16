@@ -48,7 +48,7 @@ let UsersService = class UsersService {
             return newUser;
         }
         else {
-            return user;
+            return null;
         }
     }
 };

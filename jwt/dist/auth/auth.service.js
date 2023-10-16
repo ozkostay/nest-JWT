@@ -35,6 +35,9 @@ let AuthService = class AuthService {
     }
     async register(userNew) {
         const user = await this.usersService.addUser(userNew);
+        if (!user) {
+            return { statusCode: 401, message: 'Пользователь с таким именем уже есть!!!' };
+        }
         const payload = { firstName: user.firstName, sub: user.userId };
         const { password, ...result } = user;
         return {
@@ -47,7 +50,7 @@ let AuthService = class AuthService {
         return this.jwtService.sign(payload);
     }
     testtoken() {
-        return 'AUTH testtoken';
+        return { statusCode: 200, message: 'Успешный доступ к закрытой странице' };
     }
 };
 exports.AuthService = AuthService;

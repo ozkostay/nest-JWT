@@ -44,7 +44,7 @@ export class UsersService {
             console.log(this.users);
             return newUser;
         } else {
-            return user;
+            return null;
         }
     }
 }
