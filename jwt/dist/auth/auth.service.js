@@ -20,11 +20,8 @@ let AuthService = class AuthService {
     }
     async validateUser(email, pass) {
         const user = await this.usersService.findOne(email);
-        console.log('DDD1', user);
         if (user && user.password === pass) {
-            console.log('DDD2', user);
             const { password, ...result } = user;
-            console.log('DDD res', result);
             return result;
         }
         return null;
@@ -33,17 +30,16 @@ let AuthService = class AuthService {
         const payload = { firstName: user.firstName, sub: user.userId };
         return {
             access_token: this.jwtService.sign(payload),
-            user
+            user,
         };
     }
     async register(userNew) {
-        console.log('ARGS', userNew);
         const user = await this.usersService.addUser(userNew);
         const payload = { firstName: user.firstName, sub: user.userId };
         const { password, ...result } = user;
         return {
             access_token: this.jwtService.sign(payload),
-            user: result
+            user: result,
         };
     }
     createToken(payload) {
@@ -51,7 +47,7 @@ let AuthService = class AuthService {
         return this.jwtService.sign(payload);
     }
     testtoken() {
-        return ('AUTH testtoken');
+        return 'AUTH testtoken';
     }
 };
 exports.AuthService = AuthService;

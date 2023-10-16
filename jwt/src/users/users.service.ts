@@ -30,9 +30,7 @@ export class UsersService {
     async addUser(payload) : Promise<User | undefined>{
         const { email, password, firstName, lastName } = payload;
         // проверяем наличие email в базе
-        // console.log('=== UsSer == email', email);
         const user = await this.findOne(email);
-        // console.log('=== UsSer == user', user);
         if (!user) {
             // типизировать!!!!!!!!!!!!!!!!!!!!!!!
             const newUser = {
@@ -49,5 +47,4 @@ export class UsersService {
             return user;
         }
     }
-   
 }
