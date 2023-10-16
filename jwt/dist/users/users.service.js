@@ -8,20 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
+const uuid_1 = require("uuid");
 let UsersService = class UsersService {
     constructor() {
         this.users = [
             {
-                userId: 1,
-                username: 'john',
-                password: 'changeme',
+                userId: '1',
                 email: 'john@pp.ru',
+                password: 'changeme',
+                firstName: 'john',
+                lastName: 'aaaaaaa',
             },
             {
-                userId: 2,
-                username: 'maria',
-                password: 'guess',
+                userId: '2',
                 email: 'maria@pp.ru',
+                password: 'guess',
+                firstName: 'maria',
+                lastName: 'bbbbbbb',
             },
         ];
     }
@@ -30,7 +33,23 @@ let UsersService = class UsersService {
         return this.users.find(user => user.email === email);
     }
     async addUser(payload) {
-        return 'ok';
+        const { email, password, firstName, lastName } = payload;
+        const user = await this.findOne(email);
+        if (!user) {
+            const newUser = {
+                userId: (0, uuid_1.v4)(),
+                email,
+                password,
+                firstName,
+                lastName,
+            };
+            this.users.push(newUser);
+            console.log(this.users);
+            return newUser;
+        }
+        else {
+            return user;
+        }
     }
 };
 exports.UsersService = UsersService;

@@ -3,7 +3,10 @@ export declare class AuthController {
     private readonly authService;
     constructor(authService: AuthService);
     root(): string;
-    singup(): string;
+    register(body: any): Promise<{
+        access_token: string;
+        user: any;
+    }>;
     login(req: any): Promise<{
         access_token: string;
         user: any;

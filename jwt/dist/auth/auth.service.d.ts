@@ -9,8 +9,10 @@ export declare class AuthService {
         access_token: string;
         user: any;
     }>;
+    register(userNew: any): Promise<{
+        access_token: string;
+        user: any;
+    }>;
     createToken(payload: any): string;
-    root(): string;
-    singup(): string;
     testtoken(): string;
 }

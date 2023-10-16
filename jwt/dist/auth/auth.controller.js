@@ -23,8 +23,9 @@ let AuthController = class AuthController {
     root() {
         return 'WWWWWWWWWWWWWWWW';
     }
-    singup() {
-        return this.authService.singup();
+    async register(body) {
+        console.log('API-CONTROLLER register === ', body);
+        return this.authService.register(body);
     }
     async login(req) {
         console.log('API-CONTROLLER=== ', req.user);
@@ -42,11 +43,12 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "root", null);
 __decorate([
-    (0, common_1.Get)('signup'),
+    (0, common_1.Post)('signup'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AuthController.prototype, "singup", null);
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "register", null);
 __decorate([
     (0, common_1.Post)('signin'),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('local')),

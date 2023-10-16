@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Request, UseGuards} from '@nestjs/common';
+import {Body, Controller, Get, Post, Request, UseGuards} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
 
@@ -11,12 +11,20 @@ export class AuthController {
     return 'WWWWWWWWWWWWWWWW';
   }
 
-  @Get('signup')
-  singup() {
-    return this.authService.singup();
+  // @Post('signup')
+  // singup() {
+  //   const temp = { email: "maria2@pp.ru", password: "123", firstName: "Konst", lastName: "Oz" }
+  //   return this.authService.register(temp);
+  // }
 
+  @Post('signup')
+  // @UseGuards(AuthGuard('local'))
+  // async register(@Request() req) {
+    async register(@Body() body: any) {
+    console.log('API-CONTROLLER register === ', body);
+    return this.authService.register(body)
   }
-  
+
   @Post('signin')
   @UseGuards(AuthGuard('local'))
   async login(@Request() req) {
